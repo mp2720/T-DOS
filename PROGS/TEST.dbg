@@ -1,0 +1,30 @@
+NASM Output format debug dump
+input file  = PROGS/TEST.S
+output file = PROGS/TEST.dbg
+*** pass reset: pass0 = 0, passn = 1
+section_name on init: returning 2
+section_names TLF_INFO () pass 1: returning 4
+deflabel TLF_INFO := 00000005:0000000000000000 local (0)(null)
+section_names TLF_CODE () pass 1: returning 6
+deflabel TLF_CODE := 00000007:0000000000000000 local (0)(null)
+*** pass reset: pass0 = 0, passn = 2
+section_name on init: returning 2
+herelabel __TLF_CODE__ type 0 (seg 00000006) -> 00000006
+*** pass reset: pass0 = 1, passn = 3
+section_name on init: returning 2
+herelabel __TLF_CODE__ type 0 (seg 00000006) -> 00000006
+deflabel __TLF_CODE__ := 00000006:0000000000000000 local (0)(null)
+*** pass reset: pass0 = 2, passn = 4
+section_name on init: returning 2
+herelabel __TLF_CODE__ type 0 (seg 00000006) -> 00000006
+out to 6:0 rawdata wrap bits 16 insoffs 0/2 size 1 ins jmp(1)
+  data: eb                                                 .               
+  legacy: out to 6, len = 1 (0x1): rawdata
+out to 6:1 rawdata signed bits 16 insoffs 1/2 size 1 ins jmp(1)
+  data: fe                                                 .               
+  legacy: out to 6, len = 1 (0x1): rawdata
+out to 4:0 rawdata wrap bits 16 insoffs 0/1 size 1 no ins (plain data)
+  data: 63                                                 c               
+  legacy: out to 4, len = 1 (0x1): rawdata
+out to 4:1 address wrap bits 16 insoffs 0/1 size 1 no ins (plain data) target 6:0
+  legacy: out to 4, len = 1: addr 00000000 (seg 00000006, wrt ffffffff)
